@@ -78,7 +78,7 @@ public class ClientConnectionThread extends Thread {
 			}
 
 			Main.usedClientNames.add(clientName);
-			Main.clients.put(port, connectionThread);
+			Main.clients.put(port, this);
 
 			new BroadcastThread(this, clientName + " has joined the room",
 					eyeChatUsername).start();
