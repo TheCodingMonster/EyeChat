@@ -27,6 +27,8 @@ public class MessageReaderThread extends Thread {
 				System.out.println(parts[0] + ": " + parts[1]);
 			}
 		} catch (IOException e) {
+			System.err.println("Disconnected from chat. Check that your internet connection is fine and try to reconnect.");
+			System.err.println("Also, check that the chat server is online");
 			System.exit(2);
 		}
 	}

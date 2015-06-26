@@ -33,6 +33,7 @@ public class Main {
 			System.exit(1);
 		}
 		EYECHAT_MAIN.info("Sucessfully connected binded to port 3000!");
+		new GhostingThread().start();
 		EYECHAT_MAIN.info("Waiting for client to connect...");
 		while (true) {
 			int port = lastPort++;
@@ -42,9 +43,11 @@ public class Main {
 			} catch (IOException e) {
 				EYECHAT_MAIN.error("Error in client connection!");
 				e.printStackTrace();
+				lastPort--;
 			}
 			if (clientSocket == null) {
 				EYECHAT_MAIN.warn("Client Connection is null!");
+				lastPort--;
 				continue;
 			}
 			EYECHAT_MAIN.info("Client connected!");

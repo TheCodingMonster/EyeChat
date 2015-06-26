@@ -81,10 +81,13 @@ public class Main {
 					chatSocket.getOutputStream()));
 			System.out.println("Sucessfully connected to chat!");
 			System.out.println("Now waiting for messages...");
+			name = name.replaceAll("\n", "");
+			System.out.print(name + ": ");
 			for (String message = in.readLine(); message != null; message = in
 					.readLine()) {
 				out.write(message + "\n");
 				out.flush();
+				System.out.print(name + ": ");
 			}
 		} catch (UnknownHostException e) {
 			System.err.print("java.net.UnknownHostException: Unknown host "
